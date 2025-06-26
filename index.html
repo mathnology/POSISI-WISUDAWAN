@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JALUR KIRI</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .input-container input,
+    .input-container button {
+      padding: 8px 12px;
+      font-size: 1rem;
+      margin: 5px;
+    }
+
+    .result {
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+    }
+
+    .wrapper {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(20, minmax(50px, 1fr));
+      gap: 8px;
+      padding: 10px;
+      min-width: 1000px; /* supaya tidak rusak di layar kecil */
+    }
+
+    .box {
+      text-align: center;
+      padding: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+      font-size: 0.9rem;
+      min-width: 50px;
+    }
+
+    .header {
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9rem;
+      min-width: 50px;
+      font-weight: bold;
+      border: none;
+      background-color: transparent;
+    }
+
+    .highlight {
+      background-color: red;
+      color: white;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .box, .header {
+        font-size: 0.75rem;
+        padding: 8px 4px;
+      }
+
+      .input-container input,
+      .input-container button {
+        width: 80%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Gambar Utama -->
+  <div style="text-align: center; margin-top: 20px;">
+    <img src="https://raw.githubusercontent.com/mathnology/POSISI-WISUDAWAN/refs/heads/main/LOGO%20UINSI.png" alt="Logo UINSI">
+  </div>
+
+  <div class="title">JALUR KIRI</div>
+
+  <div class="input-container">
+    <label for="input-number">Masukkan angka 3 digit: </label>
+    <input type="number" id="input-number" min="1" max="456">
+    <button onclick="highlightBox()">Tampilkan Kursi</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <!-- Pembungkus grid agar bisa discroll -->
+  <div class="wrapper">
+    <div class="container" id="grid-container">
+    <!-- HEADER KOLOM: dari S ke A -->
+        <div class="header">S</div>
+        <div class="header">R</div>
+        <div class="header">Q</div>
+        <div class="header">P</div>
+        <div class="header">O</div>
+        <div class="header">N</div>
+        <div class="header">M</div>
+        <div class="header">L</div>
+        <div class="header">K</div>
+        <div class="header">J</div>
+        <div class="header">I</div>
+        <div class="header">H</div>
+        <div class="header">G</div>
+        <div class="header">F</div>
+        <div class="header">E</div>
+        <div class="header">D</div>
+        <div class="header">C</div>
+        <div class="header">B</div>
+        <div class="header">A</div>
+        <div class="header"></div>
+
+        <div class="box">433</div>
+        <div class="box">409</div>
+        <div class="box">385</div>
+        <div class="box">361</div>
+        <div class="box">337</div>
+        <div class="box">313</div>
+        <div class="box">289</div>
+        <div class="box">265</div>
+        <div class="box">241</div>
+        <div class="box">217</div>
+        <div class="box">193</div>
+        <div class="box">169</div>
+        <div class="box">145</div>
+        <div class="box">121</div>
+        <div class="box">097</div>
+        <div class="box">073</div>
+        <div class="box">049</div>
+        <div class="box">025</div>
+        <div class="box">001</div>
+        <div class="header">Baris 01</div>
+
+        <div class="box">434</div>
+        <div class="box">410</div>
+        <div class="box">386</div>
+        <div class="box">362</div>
+        <div class="box">338</div>
+        <div class="box">314</div>
+        <div class="box">290</div>
+        <div class="box">266</div>
+        <div class="box">242</div>
+        <div class="box">218</div>
+        <div class="box">194</div>
+        <div class="box">170</div>
+        <div class="box">146</div>
+        <div class="box">122</div>
+        <div class="box">098</div>
+        <div class="box">074</div>
+        <div class="box">050</div>
+        <div class="box">026</div>
+        <div class="box">002</div>
+        <div class="header">Baris 02</div>
+
+        <div class="box">435</div>
+        <div class="box">411</div>
+        <div class="box">387</div>
+        <div class="box">363</div>
+        <div class="box">339</div>
+        <div class="box">315</div>
+        <div class="box">291</div>
+        <div class="box">267</div>
+        <div class="box">243</div>
+        <div class="box">219</div>
+        <div class="box">195</div>
+        <div class="box">171</div>
+        <div class="box">147</div>
+        <div class="box">123</div>
+        <div class="box">099</div>
+        <div class="box">075</div>
+        <div class="box">051</div>
+        <div class="box">027</div>
+        <div class="box">003</div>
+        <div class="header">Baris 03</div>
+
+        <div class="box">436</div>
+        <div class="box">412</div>
+        <div class="box">388</div>
+        <div class="box">364</div>
+        <div class="box">340</div>
+        <div class="box">316</div>
+        <div class="box">292</div>
+        <div class="box">268</div>
+        <div class="box">244</div>
+        <div class="box">220</div>
+        <div class="box">196</div>
+        <div class="box">172</div>
+        <div class="box">148</div>
+        <div class="box">124</div>
+        <div class="box">100</div>
+        <div class="box">076</div>
+        <div class="box">052</div>
+        <div class="box">028</div>
+        <div class="box">004</div>
+        <div class="header">Baris 04</div>
+
+        <div class="box">437</div>
+        <div class="box">413</div>
+        <div class="box">389</div>
+        <div class="box">365</div>
+        <div class="box">341</div>
+        <div class="box">317</div>
+        <div class="box">293</div>
+        <div class="box">269</div>
+        <div class="box">245</div>
+        <div class="box">221</div>
+        <div class="box">197</div>
+        <div class="box">173</div>
+        <div class="box">149</div>
+        <div class="box">125</div>
+        <div class="box">101</div>
+        <div class="box">077</div>
+        <div class="box">053</div>
+        <div class="box">029</div>
+        <div class="box">005</div>
+        <div class="header">Baris 05</div>
+
+        <div class="box">438</div>
+        <div class="box">414</div>
+        <div class="box">390</div>
+        <div class="box">366</div>
+        <div class="box">342</div>
+        <div class="box">318</div>
+        <div class="box">294</div>
+        <div class="box">270</div>
+        <div class="box">246</div>
+        <div class="box">222</div>
+        <div class="box">198</div>
+        <div class="box">174</div>
+        <div class="box">150</div>
+        <div class="box">126</div>
+        <div class="box">102</div>
+        <div class="box">078</div>
+        <div class="box">054</div>
+        <div class="box">030</div>
+        <div class="box">006</div>
+        <div class="header">Baris 06</div>
+
+        <div class="box">439</div>
+        <div class="box">415</div>
+        <div class="box">391</div>
+        <div class="box">367</div>
+        <div class="box">343</div>
+        <div class="box">319</div>
+        <div class="box">295</div>
+        <div class="box">271</div>
+        <div class="box">247</div>
+        <div class="box">223</div>
+        <div class="box">199</div>
+        <div class="box">175</div>
+        <div class="box">151</div>
+        <div class="box">127</div>
+        <div class="box">103</div>
+        <div class="box">079</div>
+        <div class="box">055</div>
+        <div class="box">031</div>
+        <div class="box">007</div>
+        <div class="header">Baris 07</div>
+
+        <div class="box">440</div>
+        <div class="box">416</div>
+        <div class="box">392</div>
+        <div class="box">368</div>
+        <div class="box">344</div>
+        <div class="box">320</div>
+        <div class="box">296</div>
+        <div class="box">272</div>
+        <div class="box">248</div>
+        <div class="box">224</div>
+        <div class="box">200</div>
+        <div class="box">176</div>
+        <div class="box">152</div>
+        <div class="box">128</div>
+        <div class="box">104</div>
+        <div class="box">080</div>
+        <div class="box">056</div>
+        <div class="box">032</div>
+        <div class="box">008</div>
+        <div class="header">Baris 08</div>
+
+        <div class="box">441</div>
+        <div class="box">417</div>
+        <div class="box">393</div>
+        <div class="box">369</div>
+        <div class="box">345</div>
+        <div class="box">321</div>
+        <div class="box">297</div>
+        <div class="box">273</div>
+        <div class="box">249</div>
+        <div class="box">225</div>
+        <div class="box">201</div>
+        <div class="box">177</div>
+        <div class="box">153</div>
+        <div class="box">129</div>
+        <div class="box">105</div>
+        <div class="box">081</div>
+        <div class="box">057</div>
+        <div class="box">033</div>
+        <div class="box">009</div>
+        <div class="header">Baris 09</div>
+
+        <div class="box">442</div>
+        <div class="box">418</div>
+        <div class="box">394</div>
+        <div class="box">370</div>
+        <div class="box">346</div>
+        <div class="box">322</div>
+        <div class="box">298</div>
+        <div class="box">274</div>
+        <div class="box">250</div>
+        <div class="box">226</div>
+        <div class="box">202</div>
+        <div class="box">178</div>
+        <div class="box">154</div>
+        <div class="box">130</div>
+        <div class="box">106</div>
+        <div class="box">082</div>
+        <div class="box">058</div>
+        <div class="box">034</div>
+        <div class="box">010</div>
+        <div class="header">Baris 10</div>
+
+        <div class="box">443</div>
+        <div class="box">419</div>
+        <div class="box">395</div>
+        <div class="box">371</div>
+        <div class="box">347</div>
+        <div class="box">323</div>
+        <div class="box">299</div>
+        <div class="box">275</div>
+        <div class="box">251</div>
+        <div class="box">227</div>
+        <div class="box">203</div>
+        <div class="box">179</div>
+        <div class="box">155</div>
+        <div class="box">131</div>
+        <div class="box">107</div>
+        <div class="box">083</div>
+        <div class="box">059</div>
+        <div class="box">035</div>
+        <div class="box">011</div>
+        <div class="header">Baris 11</div>
+
+        <div class="box">444</div>
+        <div class="box">420</div>
+        <div class="box">396</div>
+        <div class="box">372</div>
+        <div class="box">348</div>
+        <div class="box">324</div>
+        <div class="box">300</div>
+        <div class="box">276</div>
+        <div class="box">252</div>
+        <div class="box">228</div>
+        <div class="box">204</div>
+        <div class="box">180</div>
+        <div class="box">156</div>
+        <div class="box">132</div>
+        <div class="box">108</div>
+        <div class="box">084</div>
+        <div class="box">060</div>
+        <div class="box">036</div>
+        <div class="box">012</div>
+        <div class="header">Baris 12</div>
+
+        <div class="box">445</div>
+        <div class="box">421</div>
+        <div class="box">397</div>
+        <div class="box">373</div>
+        <div class="box">349</div>
+        <div class="box">325</div>
+        <div class="box">301</div>
+        <div class="box">277</div>
+        <div class="box">253</div>
+        <div class="box">229</div>
+        <div class="box">205</div>
+        <div class="box">181</div>
+        <div class="box">157</div>
+        <div class="box">133</div>
+        <div class="box">109</div>
+        <div class="box">085</div>
+        <div class="box">061</div>
+        <div class="box">037</div>
+        <div class="box">013</div>
+        <div class="header">Baris 13</div>
+
+        <div class="box">446</div>
+        <div class="box">422</div>
+        <div class="box">398</div>
+        <div class="box">374</div>
+        <div class="box">350</div>
+        <div class="box">326</div>
+        <div class="box">302</div>
+        <div class="box">278</div>
+        <div class="box">254</div>
+        <div class="box">230</div>
+        <div class="box">206</div>
+        <div class="box">182</div>
+        <div class="box">158</div>
+        <div class="box">134</div>
+        <div class="box">110</div>
+        <div class="box">086</div>
+        <div class="box">062</div>
+        <div class="box">038</div>
+        <div class="box">014</div>
+        <div class="header">Baris 14</div>
+
+        <div class="box">447</div>
+        <div class="box">423</div>
+        <div class="box">399</div>
+        <div class="box">375</div>
+        <div class="box">351</div>
+        <div class="box">327</div>
+        <div class="box">303</div>
+        <div class="box">279</div>
+        <div class="box">255</div>
+        <div class="box">231</div>
+        <div class="box">207</div>
+        <div class="box">183</div>
+        <div class="box">159</div>
+        <div class="box">135</div>
+        <div class="box">111</div>
+        <div class="box">087</div>
+        <div class="box">063</div>
+        <div class="box">039</div>
+        <div class="box">015</div>
+        <div class="header">Baris 15</div>
+
+        <div class="box">448</div>
+        <div class="box">424</div>
+        <div class="box">400</div>
+        <div class="box">376</div>
+        <div class="box">352</div>
+        <div class="box">328</div>
+        <div class="box">304</div>
+        <div class="box">280</div>
+        <div class="box">256</div>
+        <div class="box">232</div>
+        <div class="box">208</div>
+        <div class="box">184</div>
+        <div class="box">160</div>
+        <div class="box">136</div>
+        <div class="box">112</div>
+        <div class="box">088</div>
+        <div class="box">064</div>
+        <div class="box">040</div>
+        <div class="box">016</div>
+        <div class="header">Baris 16</div>
+
+        <div class="box">449</div>
+        <div class="box">425</div>
+        <div class="box">401</div>
+        <div class="box">377</div>
+        <div class="box">353</div>
+        <div class="box">329</div>
+        <div class="box">305</div>
+        <div class="box">281</div>
+        <div class="box">257</div>
+        <div class="box">233</div>
+        <div class="box">209</div>
+        <div class="box">185</div>
+        <div class="box">161</div>
+        <div class="box">137</div>
+        <div class="box">113</div>
+        <div class="box">089</div>
+        <div class="box">065</div>
+        <div class="box">041</div>
+        <div class="box">017</div>
+        <div class="header">Baris 17</div>
+
+        <div class="box">450</div>
+        <div class="box">426</div>
+        <div class="box">402</div>
+        <div class="box">378</div>
+        <div class="box">354</div>
+        <div class="box">330</div>
+        <div class="box">306</div>
+        <div class="box">282</div>
+        <div class="box">258</div>
+        <div class="box">234</div>
+        <div class="box">210</div>
+        <div class="box">186</div>
+        <div class="box">162</div>
+        <div class="box">138</div>
+        <div class="box">114</div>
+        <div class="box">090</div>
+        <div class="box">066</div>
+        <div class="box">042</div>
+        <div class="box">018</div>
+        <div class="header">Baris 18</div>
+
+        <div class="box">451</div>
+        <div class="box">427</div>
+        <div class="box">403</div>
+        <div class="box">379</div>
+        <div class="box">355</div>
+        <div class="box">331</div>
+        <div class="box">307</div>
+        <div class="box">283</div>
+        <div class="box">259</div>
+        <div class="box">235</div>
+        <div class="box">211</div>
+        <div class="box">187</div>
+        <div class="box">163</div>
+        <div class="box">139</div>
+        <div class="box">115</div>
+        <div class="box">091</div>
+        <div class="box">067</div>
+        <div class="box">043</div>
+        <div class="box">019</div>
+        <div class="header">Baris 19</div>
+
+        <div class="box">452</div>
+        <div class="box">428</div>
+        <div class="box">404</div>
+        <div class="box">380</div>
+        <div class="box">356</div>
+        <div class="box">332</div>
+        <div class="box">308</div>
+        <div class="box">284</div>
+        <div class="box">260</div>
+        <div class="box">236</div>
+        <div class="box">212</div>
+        <div class="box">188</div>
+        <div class="box">164</div>
+        <div class="box">140</div>
+        <div class="box">116</div>
+        <div class="box">092</div>
+        <div class="box">068</div>
+        <div class="box">044</div>
+        <div class="box">020</div>
+        <div class="header">Baris 20</div>
+
+        <div class="box">453</div>
+        <div class="box">429</div>
+        <div class="box">405</div>
+        <div class="box">381</div>
+        <div class="box">357</div>
+        <div class="box">333</div>
+        <div class="box">309</div>
+        <div class="box">285</div>
+        <div class="box">261</div>
+        <div class="box">237</div>
+        <div class="box">213</div>
+        <div class="box">189</div>
+        <div class="box">165</div>
+        <div class="box">141</div>
+        <div class="box">117</div>
+        <div class="box">093</div>
+        <div class="box">069</div>
+        <div class="box">045</div>
+        <div class="box">021</div>
+        <div class="header">Baris 21</div>
+
+        <div class="box"></div>
+        <div class="box">430</div>
+        <div class="box">406</div>
+        <div class="box">382</div>
+        <div class="box">358</div>
+        <div class="box">334</div>
+        <div class="box">310</div>
+        <div class="box">286</div>
+        <div class="box">262</div>
+        <div class="box">238</div>
+        <div class="box">214</div>
+        <div class="box">190</div>
+        <div class="box">166</div>
+        <div class="box">142</div>
+        <div class="box">118</div>
+        <div class="box">094</div>
+        <div class="box">070</div>
+        <div class="box">046</div>
+        <div class="box">022</div>
+        <div class="header">Baris 22</div>
+
+        <div class="box"></div>
+        <div class="box">431</div>
+        <div class="box">407</div>
+        <div class="box">383</div>
+        <div class="box">359</div>
+        <div class="box">335</div>
+        <div class="box">311</div>
+        <div class="box">287</div>
+        <div class="box">263</div>
+        <div class="box">239</div>
+        <div class="box">215</div>
+        <div class="box">191</div>
+        <div class="box">167</div>
+        <div class="box">143</div>
+        <div class="box">119</div>
+        <div class="box">095</div>
+        <div class="box">071</div>
+        <div class="box">047</div>
+        <div class="box">023</div>
+        <div class="header">Baris 23</div>
+
+        <div class="box"></div>
+        <div class="box">432</div>
+        <div class="box">408</div>
+        <div class="box">384</div>
+        <div class="box">360</div>
+        <div class="box">336</div>
+        <div class="box">312</div>
+        <div class="box">288</div>
+        <div class="box">264</div>
+        <div class="box">240</div>
+        <div class="box">216</div>
+        <div class="box">192</div>
+        <div class="box">168</div>
+        <div class="box">144</div>
+        <div class="box">120</div>
+        <div class="box">096</div>
+        <div class="box">072</div>
+        <div class="box">048</div>
+        <div class="box">024</div>
+        <div class="header">Baris 24</div>
+    </div>
+  </div>
+
+<script>
+  function highlightBox() {
+    const inputNumber = document.getElementById("input-number").value;
+    const allElements = document.querySelectorAll(".container > div");
+    let countBox = 0;  // hanya menghitung elemen .box yang valid
+    let found = false;
+    let resultText = '';
+
+    // Urutan kolom dari kiri ke kanan di HTML (S ke A)
+    const kolomHuruf = ['S', 'R', 'Q', 'P', 'O', 'N', 'M', 'L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A'];
+    const kolomCount = kolomHuruf.length;
+
+    allElements.forEach((el) => {
+      if (el.classList.contains("box")) {
+        el.classList.remove("highlight");
+        if (el.textContent === inputNumber) {
+          el.classList.add("highlight");
+
+          const row = Math.floor(countBox / kolomCount) + 1;
+          const col = kolomHuruf[countBox % kolomCount] || '-';
+
+          resultText = `Angka ${inputNumber} berada pada Baris ${row}, Kolom ${col}`;
+          found = true;
+        }
+        countBox++;
+      }
+    });
+
+    if (!found) {
+      resultText = "Posisi Tempat duduk Anda ada di JALUR KANAN";
+    }
+
+    document.getElementById("result").innerText = resultText;
+  }
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
